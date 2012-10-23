@@ -1,12 +1,18 @@
 {
   "name": "hedge",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Basic access authentication (basic auth) middleware",
   "homepage": "https://github.com/gsf/hedge",
-  "author" : "Gabriel Farrell <g@grrawr.com>",
+  "author": "Gabriel Farrell <g@grrawr.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gsf/hedge.git"
+    "url": "git://github.com/gsf/hedge.git"
   },
-  "main": "hedge.js"
+  "main": "hedge.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
 }
