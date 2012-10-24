@@ -6,7 +6,7 @@ module.exports = function (opts) {
   var validate = opts.validate || function () {}
 
   var needAuth = function (res) {
-    res.writeHead(401, {'WWW-Authenticate': 'Basic realm="'+opts.realm+'"'})
+    res.writeHead(401, {'WWW-Authenticate': 'Basic realm="'+realm+'"'})
     res.end()
   }
 
