@@ -9,7 +9,9 @@
     "url": "git://github.com/gsf/hedge.git"
   },
   "main": "hedge.js",
-  "dependencies": {},
+  "dependencies": {
+    "basic-auth-parser": "0.0.2"
+  },
   "devDependencies": {},
   "optionalDependencies": {},
   "engines": {
