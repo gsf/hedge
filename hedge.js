@@ -2,8 +2,9 @@ var parser = require('basic-auth-parser')
 
 
 module.exports = function (opts) {
-  var realm = opts.realm || 'luxembourg'
-  var validate = opts.validate || function () {}
+  var realm = opts.realm || ''
+  // default validate just calls callback so everything passes
+  var validate = opts.validate || function (u, p, cb) {cb()}
 
   var needAuth = function (res) {
     res.writeHead(401, {'WWW-Authenticate': 'Basic realm="'+realm+'"'})
