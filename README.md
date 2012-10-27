@@ -1,6 +1,6 @@
 hedge
 =====
-Basic access authentication middleware
+Basic access authentication (basic auth) middleware for Node.js
 
 Usage
 -----
