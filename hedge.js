@@ -1,10 +1,10 @@
 var parser = require('basic-auth-parser')
 
+var pairs = getPairs(process.env.PAIRS || 'user:pass user2:pass2 user3:pass3')
 
 module.exports = function (opts) {
   var realm = opts.realm || ''
-  // default validate just calls callback so everything passes
-  var validate = opts.validate || function (u, p, cb) {cb()}
+  var validate = opts.validate || validate
 
   var needAuth = function (res) {
     res.writeHead(401, {'WWW-Authenticate': 'Basic realm="'+realm+'"'})
@@ -24,4 +24,18 @@ module.exports = function (opts) {
     }
     needAuth(res)
   }
+}
+
+function getPairs(pairStr) {
+  var p = {}
+  pairStr.split(/\s+/).forEach(function (pair) {
+    var userPass = pair.split(':')
+    p[userPass[0]] = userPass[1]
+  })
+  return p
+}
+
+function validate (username, password, cb) {
+  if (pairs[username] === password) return cb()
+  cb(new Error('No match'))
 }
