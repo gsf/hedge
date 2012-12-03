@@ -1,6 +1,6 @@
 {
   "name": "hedge",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Basic access authentication (basic auth) middleware",
   "homepage": "https://github.com/gsf/hedge",
   "author": "Gabriel Farrell <g@grrawr.com>",
