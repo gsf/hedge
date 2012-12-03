@@ -2,9 +2,9 @@ var parser = require('basic-auth-parser')
 
 var pairs = getPairs(process.env.PAIRS || 'user:pass user2:pass2 user3:pass3')
 
-module.exports = function (opts) {
+module.exports = function hedge (opts) {
   var realm = opts.realm || ''
-  var validate = opts.validate || validate
+  var validate = opts.validate || envValidate
 
   var needAuth = function (res) {
     res.writeHead(401, {'WWW-Authenticate': 'Basic realm="'+realm+'"'})
@@ -26,7 +26,7 @@ module.exports = function (opts) {
   }
 }
 
-function getPairs(pairStr) {
+function getPairs (pairStr) {
   var p = {}
   pairStr.split(/\s+/).forEach(function (pair) {
     var userPass = pair.split(':')
@@ -35,7 +35,7 @@ function getPairs(pairStr) {
   return p
 }
 
-function validate (username, password, cb) {
+function envValidate (username, password, cb) {
   if (pairs[username] === password) return cb()
   cb(new Error('No match'))
 }
