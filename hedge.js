@@ -3,7 +3,8 @@ var parser = require('basic-auth-parser')
 var pairs = getPairs(process.env.PAIRS || 'user:pass user2:pass2 user3:pass3')
 
 module.exports = function hedge (opts) {
-  var realm = opts.realm || ''
+  var opts = opts || {};
+  var realm = opts.realm || 'Luxembourg'
   var validate = opts.validate || envValidate
 
   var needAuth = function (res) {
